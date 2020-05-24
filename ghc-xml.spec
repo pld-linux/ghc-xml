@@ -6,13 +6,13 @@
 Summary:	A simple XML library
 Summary(pl.UTF-8):	Prosta biblioteka do XML-a
 Name:		ghc-%{pkgname}
-Version:	1.3.13
+Version:	1.3.14
 Release:	1
 License:	BSD
 Group:		Development/Languages
 #Source0Download: http://hackage.haskell.org/package/xml
 Source0:	http://hackage.haskell.org/package/%{pkgname}-%{version}/%{pkgname}-%{version}.tar.gz
-# Source0-md5:	17823634f69305e8d4cc99b22934a78c
+# Source0-md5:	bc3d37dca61f52e4d3f547b07beb76c8
 URL:		http://hackage.haskell.org/package/xml
 BuildRequires:	ghc >= 6.12.3
 BuildRequires:	ghc-base >= 3
@@ -118,18 +118,21 @@ rm -rf $RPM_BUILD_ROOT
 %doc LICENSE
 %{_libdir}/%{ghcdir}/package.conf.d/%{pkgname}.conf
 %dir %{_libdir}/%{ghcdir}/%{pkgname}-%{version}
-%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/HSxml-%{version}.o
-%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/libHSxml-%{version}.a
+%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/libHSxml-%{version}-*.so
+%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/libHSxml-%{version}-*.a
+%exclude %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/libHSxml-%{version}-*_p.a
 %dir %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Text
 %dir %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Text/XML
 %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Text/XML/Light.hi
+%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Text/XML/Light.dyn_hi
 %dir %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Text/XML/Light
 %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Text/XML/Light/*.hi
+%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Text/XML/Light/*.dyn_hi
 
 %if %{with prof}
 %files prof
 %defattr(644,root,root,755)
-%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/libHSxml-%{version}_p.a
+%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/libHSxml-%{version}-*_p.a
 %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Text/XML/Light.p_hi
 %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Text/XML/Light/*.p_hi
 %endif
