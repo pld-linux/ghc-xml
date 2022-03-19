@@ -7,7 +7,7 @@ Summary:	A simple XML library
 Summary(pl.UTF-8):	Prosta biblioteka do XML-a
 Name:		ghc-%{pkgname}
 Version:	1.3.14
-Release:	1
+Release:	2
 License:	BSD
 Group:		Development/Languages
 #Source0Download: http://hackage.haskell.org/package/xml
